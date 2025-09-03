@@ -1,0 +1,18 @@
+#ifndef TWOCENGINE_H
+#define TWOCENGINE_H
+#include <SDL2/SDL.h>
+
+typedef struct tcengine_window {
+	int width;
+	int height;
+	const char *title;
+
+	SDL_Window *sdl_window;
+	SDL_Renderer *sdl_renderer;
+} tcengine_window;
+
+tcengine_window* tcengine_create_window(const char *title, int width, int height);
+
+void tcengine_init();
+
+#endif
