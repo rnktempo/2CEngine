@@ -16,4 +16,7 @@ tcengine_window* tcengine_create_window(const char *title, int width, int height
 
 void tcengine_close_window(tcengine_window *win);
 
+void tcengine_clear_window(tcengine_window *win);
+void tcengine_update_window(tcengine_window *win);
+
 #endif

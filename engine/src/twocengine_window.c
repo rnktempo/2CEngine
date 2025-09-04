@@ -51,3 +51,11 @@ void tcengine_close_window(tcengine_window *win) {
 
 	exit(0);
 }
+
+void tcengine_clear_window(tcengine_window *win) {
+	SDL_RenderClear(win->sdl_renderer);
+}
+
+void tcengine_update_window(tcengine_window *win) {
+	SDL_RenderPresent(win->sdl_renderer);
+}
