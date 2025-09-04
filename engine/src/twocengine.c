@@ -10,6 +10,11 @@ void tcengine_init() {
 	} else {
 		printf("2CEngine started SDL succesfully!\n");
 	}
+
+	if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG)) {
+		printf("Error while starting SDL_image: %s\n", IMG_GetError());
+		SDL_Quit();
+	}
 }
 
 void tcengine_delay(int ms) {
@@ -30,7 +35,7 @@ void tcengine_run_loop(tcengine_window* win, tcengine_loop_func user_func) {
 		}
 
 		user_func(win);
-
+		tcengine_delay(16); // ~60 FPS
 		tcengine_update_window(win);
 	}
 }

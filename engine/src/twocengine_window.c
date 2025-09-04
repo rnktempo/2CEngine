@@ -59,3 +59,7 @@ void tcengine_clear_window(tcengine_window *win) {
 void tcengine_update_window(tcengine_window *win) {
 	SDL_RenderPresent(win->sdl_renderer);
 }
+
+void tcengine_change_bg_color(tcengine_window *win, int r, int g, int b, int a) {
+	SDL_SetRenderDrawColor(win->sdl_renderer, r, g, b, a);
+}

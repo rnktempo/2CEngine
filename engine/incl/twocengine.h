@@ -1,8 +1,10 @@
 #ifndef TWOCENGINE_H
 #define TWOCENGINE_H
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 #include "twocengine_window.h"
+#include "twocengine_texture.h"
 
 typedef void (*tcengine_loop_func)(tcengine_window* win);
 

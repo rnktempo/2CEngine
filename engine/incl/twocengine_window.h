@@ -2,6 +2,7 @@
 #define TWOCENGINE_WINDOW_H
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
 
 typedef struct tcengine_window {
         int width;
@@ -18,5 +19,6 @@ void tcengine_close_window(tcengine_window *win);
 
 void tcengine_clear_window(tcengine_window *win);
 void tcengine_update_window(tcengine_window *win);
+void tcengine_change_bg_color(tcengine_window *win, int r, int g, int b, int a);
 
 #endif
