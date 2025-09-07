@@ -5,6 +5,7 @@
 
 #include "twocengine_window.h"
 #include "twocengine_texture.h"
+#include "twocengine_entity.h"
 
 typedef void (*tcengine_loop_func)(tcengine_window* win);
 

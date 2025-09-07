@@ -11,6 +11,11 @@ typedef struct tcengine_window {
 
         SDL_Window *sdl_window;
         SDL_Renderer *sdl_renderer;
+
+	int keyW;
+	int keyA;
+	int keyS;
+	int keyD;
 } tcengine_window;
 
 tcengine_window* tcengine_create_window(const char *title, int width, int height);

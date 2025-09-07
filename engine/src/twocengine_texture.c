@@ -1,7 +1,7 @@
 #include "twocengine_texture.h"
 #include "twocengine_window.h"
 
-tcengine_texture* tcengine_import_texture(tcengine_window *win, const char *location) {
+tcengine_texture* tcengine_import_texture(tcengine_window *win, const char *location, int width, int height) {
 	tcengine_texture *texture = malloc(sizeof(tcengine_texture));
 	if (!texture) {
 		printf("2CEngine has detected no sufficient ram to import the texture!\n");
@@ -25,12 +25,15 @@ tcengine_texture* tcengine_import_texture(tcengine_window *win, const char *loca
 		return NULL;
 	}
 
+	texture->width = width;
+	texture->height = height;
+
 	printf("2CEngine created the texture succesfully!\n");
 
 	return texture;
 }
 
-void tcengine_draw_texture(tcengine_window *win, tcengine_texture *texture, int x, int y, int w, int h) {
-	SDL_Rect dst = {x, y, w, h};
+void tcengine_draw_texture(tcengine_window *win, tcengine_texture *texture, int x, int y) {
+	SDL_Rect dst = {x, y, texture->width, texture->height};
 	SDL_RenderCopy(win->sdl_renderer, texture->sdl_texture, NULL, &dst);
 }

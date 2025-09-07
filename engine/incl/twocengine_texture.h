@@ -11,10 +11,12 @@ typedef struct tcengine_texture {
 
 	SDL_Surface *sdl_surface;
 	SDL_Texture *sdl_texture;
+	int width;
+	int height;
 } tcengine_texture;
 
-tcengine_texture* tcengine_import_texture(tcengine_window *win, const char *location);
+tcengine_texture* tcengine_import_texture(tcengine_window *win, const char *location, int width, int height);
 
-void tcengine_draw_texture(tcengine_window *win, tcengine_texture *texture, int x, int y, int w, int h);
+void tcengine_draw_texture(tcengine_window *win, tcengine_texture *texture, int x, int y);
 
 #endif

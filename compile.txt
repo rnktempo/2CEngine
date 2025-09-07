@@ -1,1 +1,1 @@
-gcc main.c ./engine/src/twocengine.c ./engine/src/twocengine_window.c ./engine/src/twocengine_texture.c -I./engine/incl/ -o main `sdl2-config --cflags --libs` -lSDL2_image
+gcc main.c ./engine/src/*.c -I./engine/incl/ -o main `sdl2-config --cflags --libs` -lSDL2_image
