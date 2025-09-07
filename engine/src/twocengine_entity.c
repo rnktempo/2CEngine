@@ -10,10 +10,14 @@ tcengine_entity* tcengine_create_entity(tcengine_texture* texture, int x, int y)
         ent->x = x;
         ent->y = y;
 
+	ent->visible = true;
+
         return ent;
 }
 
 void tcengine_draw_entity(tcengine_window* window, tcengine_entity* entity) {
-	SDL_Rect dst = {entity->x, entity->y, entity->texture->width, entity->texture->height};
-	SDL_RenderCopy(window->sdl_renderer, entity->texture->sdl_texture, NULL, &dst);
+	if (entity->visible) {
+		SDL_Rect dst = {entity->x, entity->y, entity->texture->width, entity->texture->height};
+		SDL_RenderCopy(window->sdl_renderer, entity->texture->sdl_texture, NULL, &dst);
+	}
 }

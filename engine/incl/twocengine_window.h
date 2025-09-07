@@ -12,10 +12,50 @@ typedef struct tcengine_window {
         SDL_Window *sdl_window;
         SDL_Renderer *sdl_renderer;
 
+	int keyQ;
 	int keyW;
-	int keyA;
-	int keyS;
-	int keyD;
+        int keyE;
+        int keyR;
+        int keyT;
+        int keyY;
+        int keyU;
+        int keyI;
+        int keyO;
+        int keyP;
+        int keyA;
+        int keyS;
+        int keyD;
+        int keyF;
+        int keyG;
+        int keyH;
+        int keyJ;
+        int keyK;
+        int keyL;
+        int keyZ;
+        int keyX;
+        int keyC;
+        int keyV;
+        int keyB;
+        int keyN;
+        int keyM;
+
+        int keyComma;
+        int keyDot;
+	int keyShift;
+	int keyTab;
+	int keyBackspace;
+	int keyEnter;
+
+        int key1;
+        int key2;
+        int key3;
+        int key4;
+        int key5;
+        int key6;
+        int key7;
+        int key8;
+        int key9;
+	int key0;
 } tcengine_window;
 
 tcengine_window* tcengine_create_window(const char *title, int width, int height);
