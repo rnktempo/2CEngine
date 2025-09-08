@@ -21,3 +21,22 @@ void tcengine_draw_entity(tcengine_window* window, tcengine_entity* entity) {
 		SDL_RenderCopy(window->sdl_renderer, entity->texture->sdl_texture, NULL, &dst);
 	}
 }
+
+int tcengine_check_entity_collision(tcengine_entity* ent1, tcengine_entity* ent2) {
+	int left1   = ent1->x;
+    	int right1  = ent1->x + ent1->texture->width;
+    	int top1    = ent1->y;
+    	int bottom1 = ent1->y + ent1->texture->height;
+
+    	int left2   = ent2->x;
+    	int right2  = ent2->x + ent2->texture->width;
+    	int top2    = ent2->y;
+    	int bottom2 = ent2->y + ent2->texture->height;
+
+    	if (right1 <= left2)  return 0;
+    	if (left1 >= right2)  return 0;
+    	if (bottom1 <= top2)  return 0;
+    	if (top1 >= bottom2)  return 0;
+
+    	return 1;
+}

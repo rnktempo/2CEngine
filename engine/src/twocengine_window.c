@@ -9,6 +9,8 @@ tcengine_window* tcengine_create_window(const char *title, int width, int height
                 return NULL;
         }
 
+	memset(win, 0, sizeof(tcengine_window));
+
         win->title = title;
 
         win->width = width;

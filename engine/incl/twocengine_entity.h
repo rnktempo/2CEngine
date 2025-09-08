@@ -18,4 +18,6 @@ typedef struct tcengine_entity {
 tcengine_entity* tcengine_create_entity(tcengine_texture* texture, int x, int y);
 void tcengine_draw_entity(tcengine_window* window, tcengine_entity* entity);
 
+int tcengine_check_entity_collision(tcengine_entity* ent1, tcengine_entity* ent2);
+
 #endif
