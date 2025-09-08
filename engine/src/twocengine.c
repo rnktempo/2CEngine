@@ -15,6 +15,11 @@ void tcengine_init() {
 		printf("Error while starting SDL_image: %s\n", IMG_GetError());
 		SDL_Quit();
 	}
+
+	if (!(TTF_Init() != 0)) {
+		printf("Error while starting SDL_ttf: %s\n", TTF_GetError());
+		SDL_Quit();
+	}
 }
 
 void tcengine_delay(int ms) {

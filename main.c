@@ -1,54 +1,30 @@
-#include <stdio.h>
 #include "engine/incl/twocengine.h"
 
-tcengine_entity* ship_entity;
-tcengine_entity* bullet_entity;
+tcengine_texture* sky_texture;
+tcengine_texture* ground_texture;
 
-void update_func(tcengine_window* win) {
-	tcengine_draw_entity(win, ship_entity);
-	tcengine_draw_entity(win, bullet_entity);
+tcengine_text* titleText;
 
-	if (win->keyD == 1) {
-		ship_entity->x += 5;
-	}
-
-        if (win->keyA == 1) {
-                ship_entity->x -= 5;
-        }
-
-        if (win->keyW == 1) {
-                ship_entity->y -= 5;
-        }
-
-        if (win->keyS == 1) {
-                ship_entity->y += 5;
-        }
-
-	if (win->keyL == 1) {
-		bullet_entity->x = ship_entity->x + 45;
-		bullet_entity->y = ship_entity->y;
-		bullet_entity->visible = true;
-	}
-
-	bullet_entity->y -= 20;
+void game_loop(tcengine_window* window) {
+	tcengine_draw_texture(window, sky_texture, 0, 0);
+	tcengine_draw_texture(window, ground_texture, 0, 300);
+	tcengine_draw_text(window, titleText, 300, 50);
 }
 
 int main() {
 	tcengine_init();
-	tcengine_window *window = tcengine_create_window("Ship war", 800, 600);
-	tcengine_change_bg_color(window, 96, 128, 255, 255);
+	tcengine_window* window = tcengine_create_window("Runner", 800, 400);
 
-	// textures
-	tcengine_texture* ship_texture = tcengine_import_texture(window, "./ship_sprite.png", 100, 100);
-	tcengine_texture* bullet_texture = tcengine_import_texture(window, "./bullet_sprite.png", 10, 10);
-	// entities
-	ship_entity = tcengine_create_entity(ship_texture, 350, 500);
-	bullet_entity = tcengine_create_entity(bullet_texture, 50, 50);
+	// FONTS
+	tcengine_font* gameFont = tcengine_import_font("./fonts/Pixeltype.ttf", 50);
+	// TEXTS
+	titleText = tcengine_create_text(window, gameFont, "My game", 0, 0, 0, 255);
+	// TEXTURES
+	sky_texture = tcengine_import_texture(window, "sprites/Sky.png", 800, 400);
+	ground_texture = tcengine_import_texture(window, "sprites/ground.png", 800, 168);
+	// ENTITIES
 
-	bullet_entity->visible = false;
-
-	tcengine_run_loop(window, update_func);
+	tcengine_run_loop(window, game_loop);
 	tcengine_close_window(window);
-
 	return 0;
 }

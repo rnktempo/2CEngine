@@ -45,6 +45,8 @@ void tcengine_close_window(tcengine_window *win) {
 	printf("2CEngine has destroyed renderer\n");
 	SDL_DestroyWindow(win->sdl_window);
         printf("2CEngine has destroyed window\n");
+	IMG_Quit();
+	TTF_Quit();
 	SDL_Quit();
 
 	printf("2CEngine has destroyed everything succesfully, now closing...\n");
